@@ -3,14 +3,12 @@
 theme: seriph
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
-background: https://cover.sli.dev
+# background: https://cover.sli.dev
 # some information about your slides (markdown enabled)
-title: Welcome to Slidev
+title: Welcome to Jime's Nuxt UI Workshop
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
+  ## Find useful examples for a faster development
 
-  Learn more at [Sli.dev](https://sli.dev)
 # apply unocss classes to the current slide
 class: text-center
 # https://sli.dev/features/drawing
@@ -20,617 +18,987 @@ drawings:
 transition: slide-left
 # enable MDC Syntax: https://sli.dev/features/mdc
 mdc: true
+contextMenu: false
+selectable: true
 ---
 
-# Welcome to Slidev
+<h1 >
+   <span>Welcome to the</span> <span class="green-text">Nuxt UI</span> <span>Workshop!</span>
+ </h1>
 
-Presentation slides for developers
+ <p>
+        <span>Let's dive into quickly building efficient UIs with</span
+        > <span class="green-text">Nuxt UI</span>!
+  </p>🎨💻
 
-<div @click="$slidev.nav.next" class="mt-12 py-1" hover:bg="white op-10">
-  Press Space for next page <carbon:arrow-right />
-</div>
-
-<div class="abs-br m-6 text-xl">
-  <button @click="$slidev.nav.openInEditor" title="Open in Editor" class="slidev-icon-btn">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" class="slidev-icon-btn">
-    <carbon:logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-transition: fade-out
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - themes can be shared and re-used as npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embed Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export to PDF, PPTX, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - virtually anything that's possible on a webpage is possible in Slidev
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/features/slide-scope-style
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
+<style> 
+.green-text {
+  color: #00DC82;
+} 
 </style>
 
 <!--
-Here is another comment.
+# SLIDE 1
 -->
 
 ---
-transition: slide-up
-level: 2
----
 
-# Navigation
+## Table of Content
 
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/ui#navigation-bar)
+Buttons
 
-## Keyboard Shortcuts
+<div v-click>
 
-|                                                     |                             |
-| --------------------------------------------------- | --------------------------- |
-| <kbd>right</kbd> / <kbd>space</kbd>                 | next animation or slide     |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd>                                       | previous slide              |
-| <kbd>down</kbd>                                     | next slide                  |
+Primary buttons. Setting up global styles
 
-<!-- https://sli.dev/guide/animations.html#click-animation -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-  alt=""
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
+</div>
 
----
-layout: two-cols
-layoutClass: gap-16
----
+<div v-click>
 
-# Table of contents
+Example of secondary and accent buttons
 
-You can use the `Toc` component to generate a table of contents for your slides:
+</div>
 
-```html
-<Toc minDepth="1" maxDepth="1" />
-```
+<div v-click>
 
-The title will be inferred from your slide content, or you can override it with `title` and `level` in your frontmatter.
+Change the shape (structual styles) of buttons.
 
-::right::
+</div>
+<div v-click>
 
-<Toc text-sm minDepth="1" maxDepth="2" />
+Change the variant of buttons
 
----
-layout: image-right
-image: https://cover.sli.dev
----
+</div>
+<div v-click>
 
-# Code
+Change the hover styles of buttons. (Including, hover bg color and How to make a button outline on hover, when outline is primary or antoher color.)
 
-Use code snippets and get the highlighting directly, and even types hover!
+</div>
 
-```ts {all|5|7|7-8|10|all} twoslash
-// TwoSlash enables TypeScript hover information
-// and errors in markdown code blocks
-// More at https://shiki.style/packages/twoslash
+<div v-click>
 
-import { computed, ref } from 'vue'
+How to add icons to buttons. Leading and trailing with icons from iconify and with icons from our svg components.
 
-const count = ref(0)
-const doubled = computed(() => count.value * 2)
+</div>
 
-doubled.value = 2
-```
+<div v-click>
 
-<arrow v-click="[4, 5]" x1="350" y1="310" x2="195" y2="334" color="#953" width="2" arrowSize="1" />
+how to create Buttons with icons that are animated
 
-<!-- This allow you to embed external code blocks -->
-<<< @/snippets/external.ts#snippet
+</div>
+<div v-click>
 
-<!-- Footer -->
+Change icon's color inside a button
 
-[Learn more](https://sli.dev/features/line-highlighting)
+</div>
 
-<!-- Inline style -->
-<style>
-.footnotes-sep {
-  @apply mt-5 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
+<div v-click>
+
+white, gray and black buttons
+
+</div>
 
 <!--
-Notes can also sync with clicks
-
-[click] This will be highlighted after the first click
-
-[click] Highlighted with `count = ref(0)`
-
-[click:3] Last click (skip two clicks)
+# SLIDE 2
 -->
 
 ---
-level: 2
+
+## Primary buttons. Setting up global styles
+
+In order to use the primary color in my buttons, you need to make sure that the primary color is defined in tailwind.config.js
+
+```js
+ colors: {
+        brand: {
+          50: '#f6f2ff',
+          100: '#ede8ff',
+          200: '#ded4ff',
+          300: '#c7b1ff',
+          400: '#ab85ff',
+          500: '#9c63ff',
+          600: '#8530f7',
+          700: '#771ee3',
+          800: '#6318bf',
+          900: '#52169c',
+          950: '#330b6a',
+        },
+  },
+
+```
+
+And that's it! By default, Nuxt UI ships the buttons as primary [see button config object](https://ui.nuxt.com/components/button#config). In the suite-starter, the color property is not being overridden, therefore, by deafult our buttons are primary. So, we don't need to do anything else here!
+
+<!--
+# SLIDE 3
+-->
+
 ---
 
-# Shiki Magic Move
+## Secondary and Accent Buttons
 
-Powered by [shiki-magic-move](https://shiki-magic-move.netlify.app/), Slidev supports animations across multiple code snippets.
+### Secondary Buttons
 
-Add multiple code blocks and wrap them with <code>````md magic-move</code> (four backticks) to enable the magic move. For example:
+Here we have 2 possibilities.
+
+A. If all the buttons in the page are secondary, set up the secondary color in the app.config.ts file
+
+1. First define the secondary color in tailwind.config.js
+
+```js
+     colors: {
+        brand: {
+          50: '#f6f2ff',
+          100: '#ede8ff',
+          200: '#ded4ff',
+          300: '#c7b1ff',
+          400: '#ab85ff',
+          500: '#9c63ff',
+          600: '#8530f7',
+          700: '#771ee3',
+          800: '#6318bf',
+          900: '#52169c',
+          950: '#330b6a',
+        },
+
+        green: {
+          ...colors.green, // Spread the existing green color object
+          500: '#04784e', // Override the 500 shade with your secondary color
+        },
+      },
+```
+
+<!--
+# SLIDE 4
+-->
+
+---
+
+2. Then use green as the default color of buttons in app.config.ts
+
+```js
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+      },
+      default: {
+        color: 'green',
+        size: 'xl',
+      },
+    },
+```
+
+<!--
+# SLIDE 5
+-->
+
+---
+
+B. If most of the buttons are primary and just a couple of them are secondary, use the the `color` prop in the `UButton` component.
+
+```vue
+<UButton color="green">
+      This is a secondary button
+</UButton>
+```
+
+<!--
+# SLIDE 6
+-->
+
+---
+
+### Accent Buttons
+
+For accent buttons we have the same 2 possibilities that we have for secondary buttons
+
+A. If all the buttons in the page are `accent`, set up the accent color in the `app.config.ts` file.
+
+1. First define the accent color in `tailwind.config.js`
+
+```js
+     colors: {
+        brand: {
+          50: '#f6f2ff',
+          100: '#ede8ff',
+          200: '#ded4ff',
+          300: '#c7b1ff',
+          400: '#ab85ff',
+          500: '#9c63ff',
+          600: '#8530f7',
+          700: '#771ee3',
+          800: '#6318bf',
+          900: '#52169c',
+          950: '#330b6a',
+        },
+
+        yellow: {
+          ...colors.yellow, // Spread the existing green color object
+          500: '#facc15', // Override the 500 shade with your secondary color
+        },
+      },
+```
+
+<!--
+# SLIDE 7
+-->
+
+---
+
+2. Then use yellow as the default color of buttons in `app.config.ts`
+
+```js
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+      },
+      default: {
+        color: 'green',
+        size: 'xl',
+      },
+    },
+```
+
+<!--
+# SLIDE 8
+-->
+
+---
+
+B. If most of the buttons are primary and just a couple of them are accent, use the the `color` prop in the `UButton` component.
+
+```vue
+<UButton color="yellow">
+      This is an accent button
+</UButton>
+```
+
+<!--
+# SLIDE 9
+-->
+
+---
+
+## Change the shape (structual styles) of buttons
+
+What can I change?
+
+<div class="text-sm">
+
+- Shape
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th>What do I need to change?</th>
+      <th>Which property of the button object should I target?</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Border Radius</td>
+      <td><code>rounded: 'rounded-md',</code> </td>
+      <td><img src="/images/rounded-none-btn.png" width="80"></td>
+    </tr>
+     <tr>
+      <td>Padding</td>
+      <td> 
+       The desired size inside the <code>padding</code> object. By default, the suite-starter has size <code>xl</code> for buttons.
+        <pre><code>padding: {
+ xl: 'px-10 py-2.5'
+},</code></pre> 
+      </td>
+      <td><img src="/images/padding-btn.png" width="80"></td>
+    </tr>
+      <tr>
+      <td>Font size</td>
+      <td> The desired size inside the <code>size</code> object. By default, the suite-starter has size <code>xl</code> for buttons.
+        <pre><code>size: {
+ xl: 'text-4xl'
+},</code></pre>  </td>
+      <td><img src="/images/font-size-btn.png" width="80"></td>
+    </tr>
+     <tr>
+      <td>Font weight</td>
+      <td><code>font: 'font-thin',</code> </td>
+      <td><img src="/images/font-weight-btn.png" width="80"></td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-size: 12px;
+  }
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd; /* Add right border */
+  }
+  th {
+    background-color: #d4edda;
+    font-weight: bold;
+    color: green;
+  }
+   td:last-child, th:last-child {
+    border-right: none; /* Remove right border from last column */
+  }
+  img {
+    display: block;
+    margin: auto;
+  }
+</style>
+<!--
+# SLIDE 10
+-->
+
+---
+
+## What if I want my buttons to have a different shape, such as a skewed shape?
+
+There are 2 different ways of achieving that.
+
+Option A. Set up skewed buttons globally in `app.congig.ts`, by targetting the `base `property inside the `button` object:
 
 ````md magic-move {lines: true}
-```ts {*|2|*}
-// step 1
-const author = reactive({
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-})
+```ts
+
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
 ```
 
-```ts {*|1-2|3-4|3-4,8}
-// step 2
-export default {
-  data() {
-    return {
-      author: {
-        name: 'John Doe',
-        books: [
-          'Vue 2 - Advanced Guide',
-          'Vue 3 - Basic Guide',
-          'Vue 4 - The Mystery'
-        ]
-      }
-    }
-  }
-}
+```ts {*|2|}
+
+    button: {
+      base: '-skew-x-12',
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
+```
+````
+
+<!--
+# SLIDE 10
+-->
+
+---
+
+Important! By choosing option A, I would be applying the skewed style to all my buttons, regardless of their variaty or color. And this implies overridig the skew class for buttons that are not supposed to be skewed, like the button in the header.
+
+insert image of sweked btn
+
+<div>
+
+```html
+<UButton
+  color="gray"
+  variant="ghost"
+  icon="heroicons:globe-alt"
+  size="sm"
+  :label="locale"
+  :ui="{ base: '-skew-x-0' }"
+/>
+```
+
+<img
+  v-click
+  class="absolute bottom-24 left-16 w-24 opacity-50"
+  src="/images/arrow-left.png"
+  alt=""
+/>
+
+</div>
+
+insert image of non sweked btn
+
+<!--
+# SLIDE 11
+-->
+
+---
+
+Option B. Set up skewed buttons globally in `app.congig.ts`, by targetting only the `variant` of your skewed buttons inside the `button` object:
+
+````md magic-move {lines: true}
+```ts
+
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
+```
+
+```ts {*|9-10|}
+
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+        solid: '-skew-x-12',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
+```
+````
+
+<v-click>
+
+This way buttons having a variant other than `solid`, like the buttons in the header, won't be skewed!
+
+</v-click>
+
+<!--
+# SLIDE 12
+-->
+
+---
+
+## Change the variant of your buttons
+
+- By default Nuxt UI ships buttons with variant `solid`, which is not being overrriden in the suite-starter
+- If you want all the buttons in the page to be a variant different from `solid`, set it globally by targetting the property `variant` inside the `default`object.
+
+```ts
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+      },
+      default: {
+        size: 'xl',
+        variant: 'outline',
+      },
+    },
+```
+
+- If you want just a couple of buttons to be a specific variant use in the `variant` prop inside the `<UButton>` component.
+
+```html
+<UButton variant="solid">Button</UButton>
+```
+
+<!--
+# SLIDE 13
+-->
+
+---
+
+## Change the styles of buttons on hover. Explain variant vs color here?
+
+### Change on hover buttons' bg color globally
+
+1. Identify the variant of all your buttons. For example `solid`
+2. Target the `solid` property inside the `variant`.
+3. Add as backgrond color a different shade of your buttons' color:
+
+```ts
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+        solid: 'bg-{color}-500 hover:bg-{color}-200',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
+```
+
+or....
+
+<!--
+# SLIDE 14
+-->
+
+---
+
+add as backgrond color a totally different color. Don't forget to definde the color in `tailwind.config.js`:
+
+```js
+
+     lemon: {
+          50: '#fdfee8',
+          100: '#fdffc2',
+          200: '#feff87',
+          300: '#fff943',
+          400: '#ffea03',
+          500: '#efd203',
+          600: '#cea400',
+          700: '#a47604',
+          800: '#885c0b',
+          900: '#734b10',
+          950: '#432705',
+        },
 ```
 
 ```ts
-// step 3
-export default {
-  data: () => ({
-    author: {
-      name: 'John Doe',
-      books: [
-        'Vue 2 - Advanced Guide',
-        'Vue 3 - Basic Guide',
-        'Vue 4 - The Mystery'
-      ]
-    }
-  })
-}
+
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+        solid: 'bg-{color}-500 hover:bg-lemon-500',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
 ```
 
-Non-code blocks are ignored.
+<!--
+# SLIDE 15
+-->
 
-```vue
-<!-- step 4 -->
-<script setup>
-const author = {
-  name: 'John Doe',
-  books: [
-    'Vue 2 - Advanced Guide',
-    'Vue 3 - Basic Guide',
-    'Vue 4 - The Mystery'
-  ]
-}
-</script>
+---
+
+## Change hover backgound color of a particular button by using the `ui`prop.
+
+```html
+<UButton :ui="{ variant: { solid: 'bg-{color}-500 hover:bg-lemon-500' } }">
+  Button
+</UButton>
+```
+
+<!--
+# SLIDE 16
+-->
+
+---
+
+## How to make a buttons outline on hover
+
+1. Go to the `button`object and add the `solid` property to the `variant`object:
+
+````md magic-move {lines: true}
+```ts
+
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
+```
+
+```ts {*|9-10|}
+
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+        solid: '',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
 ```
 ````
 
 ---
 
-# Components
+2. Add or change the necessary classes to have the outline style on hover
 
-<div grid="~ cols-2 gap-4">
-<div>
+````md magic-move {lines: true}
+```ts
 
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+           solid: '',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
 ```
 
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
+```ts {*|9-10|}
 
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+        solid: 'ring-2 ring-{color}-500 hover:bg-transparent hover:text-primary-500 transition-all',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
 ```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
+````
 
 <!--
-Presenter note with **bold**, *italic*, and ~~striked~~ text.
 
-Also, HTML elements are valid:
-<div class="flex w-full">
-  <span style="flex-grow: 1;">Left content</span>
-  <span>Right content</span>
-</div>
+# SLIDE 17
+
 -->
 
 ---
-class: px-20
----
 
-# Themes
+Important: if you want to have an outline colour different from your buttons' color, just don't forget to define the custom color in `tailwind.config.js`. Then, use the color as in step 2.
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="t-2">
-
-```yaml
----
-theme: default
----
+```ts
+solid: 'ring-2 ring-{color}-500 hover:ring-lemon-500 hover:bg-transparent hover:text-lemon-500 transition-all',
 ```
 
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true" alt="">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true" alt="">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/guide/theme-addon#use-theme) and
-check out the [Awesome Themes Gallery](https://sli.dev/resources/theme-gallery).
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
+As always, use the `ui` prop if you just want a specific button to have be outline on hover.
 
 ```html
-<div v-click>This shows up when you click the slide.</div>
+<UButton
+  :ui="{ variant: { solid: 'ring-2 ring-{color}-500 hover:ring-orange-500 hover:bg-transparent hover:text-orange-500 transition-all' } }"
+>
+  Button
+</UButton>
 ```
 
-</div>
+<!--
 
-<br>
+# SLIDE 18
+
+-->
+
+---
+
+## How to add icons to buttons. Leading and trailing with icons from iconify and with icons from our svg components.
+
+Here we have different possibilities:
 
 <v-click>
 
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
+1. Add Leading or trailing icons, where the icons come from iconify
 
 </v-click>
 
-<div mt-20 v-click>
+<v-click>
 
-[Learn more](https://sli.dev/guide/animations#click-animation)
+2. Add Leading or trailing icons, where the icons come from our svg component
 
-</div>
+</v-click>
+
+<v-click>Let's explore them </v-click>
+
+<!--
+
+# SLIDE 19
+
+-->
 
 ---
 
-# Motions
+## Add Leading or trailing icons, where the icons come from iconify
 
-Motion animations are powered by [@vueuse/motion](https://motion.vueuse.org/), triggered by `v-motion` directive.
+By default Nuxt UI ships buttons with leading icons, i.e. the icon is preceeds the label. Therefore, If you add an icon to a button like this, you'll get the following button:
 
 ```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }"
-  :click-3="{ x: 80 }"
-  :leave="{ x: 1000 }"
->
-  Slidev
-</div>
+<UButton icon="i-heroicons-pencil-square" label="Button" />
 ```
 
-<div class="w-60 relative">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-square.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-circle.png"
-      alt=""
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute inset-0"
-      src="https://sli.dev/logo-triangle.png"
-      alt=""
-    />
-  </div>
+<img src="/images/leading-btn-iconify.png" width="80">
 
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
+<p class="text-xs"> Nevertheless, you can use the <code>leading</code> and <code>trailing</code> props to set the icon position.</p>
 
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
+<table>
+  <thead>
+    <tr>
+      <th>Prop</th>
+      <th>Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><code>trailing: true</code></td>
+      <td>add image</td>
+    </tr>
+    <tr>
+      <td><code>trailing: false</code></td>
+      <td>add image</td>
+    </tr>
+    <tr>
+      <td><code>leading: false</code></td>
+      <td>add image</td>
+    </tr>
+  </tbody>
+</table>
+
+<style>
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid #ddd;
+    font-size: 12px;
   }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 30, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn more](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box. Powered by [KaTeX](https://katex.org/).
-
-<div h-3 />
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$ {1|3|all}
-\begin{aligned}
-\nabla \cdot \vec{E} &= \frac{\rho}{\varepsilon_0} \\
-\nabla \cdot \vec{B} &= 0 \\
-\nabla \times \vec{E} &= -\frac{\partial\vec{B}}{\partial t} \\
-\nabla \times \vec{B} &= \mu_0\vec{J} + \mu_0\varepsilon_0\frac{\partial\vec{E}}{\partial t}
-\end{aligned}
-$$
-
-[Learn more](https://sli.dev/features/latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectiveness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
+  th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd; /* Add right border */
   }
-  frame "Foo" {
-    [Frame 4]
+  th {
+    background-color: #34d399;
+    font-weight: bold;
+    color: white;
   }
-}
+   td:last-child, th:last-child {
+    border-right: none; /* Remove right border from last column */
+  }
+  img {
+    display: block;
+    margin: auto;
+  }
+</style>
 
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
+<!--
 
-@enduml
+# SLIDE 20
+
+-->
+
+---
+
+## Add Leading or trailing icons, where the icons come from our svg component
+
+1. Use the `#leading`or `#trailing` slot to set the content of the icon.
+
+```html
+<UButton label="Button">
+  <template #trailing> </template>
+</UButton>
 ```
 
-</div>
+2. Use your icon component as you normally do inside the slot
 
-Learn more: [Mermaid Diagrams](https://sli.dev/features/mermaid) and [PlantUML Diagrams](https://sli.dev/features/plantuml)
-
----
-foo: bar
-dragPos:
-  square: 691,32,167,_,-16
----
-
-# Draggable Elements
-
-Double-click on the draggable elements to edit their positions.
-
-<br>
-
-###### Directive Usage
-
-```md
-<img v-drag="'square'" src="https://sli.dev/logo.png">
+```html
+<UButton label="Button">
+  <template #trailing>
+    <Heart class="mx-auto h-[38px]" />
+  </template>
+</UButton>
 ```
 
-<br>
+<img src="/images/btn-icon-trainling-custom.png" alt="" class="w-24" />
 
-###### Component Usage
+<!--
 
-```md
-<v-drag text-3xl>
-  <div class="i-carbon:arrow-up" />
-  Use the `v-drag` component to have a draggable container!
-</v-drag>
+# SLIDE 21
+
+-->
+
+---
+
+## How to create Buttons with icons that are animated
+
+Example 1 ADD IMAGES OR BETTER TRY TO HAVE A SCREEN RECORDING
+
+If you want to create the animation globally, follow these steps. If you want to apply the animation to a specific button, just do the same using the `ui` prop.
+
+1. Inside the `button`object, identify the class that is wrapping the label and the icon. Note: By default that class is `inline`. But if you are using the `block` prop to make the Button fill the width of its container ([See example in documentation](https://ui.nuxt.com/components/button#block)), then the wrapper class will be `block`.
+
+```ts
+  button: {
+      inline: '',
+      // ...rest of the object
+  },
 ```
 
-<v-drag pos="663,206,261,_,-15">
-  <div text-center text-3xl border border-main rounded>
-    Double-click me!
-  </div>
-</v-drag>
+2. Add a transition
 
-<img v-drag="'square'" src="https://sli.dev/logo.png">
-
-###### Draggable Arrow
-
-```md
-<v-drag-arrow two-way />
+```ts
+  button: {
+      inline: 'transition-all',
+      // ...rest of the object
+  },
 ```
 
-<v-drag-arrow pos="67,452,253,46" two-way op70 />
+<style> 
+p, li {
+  font-size: 12px;
+} 
+</style>
+
+<!--
+
+# SLIDE 22
+
+-->
 
 ---
-src: ./pages/imported-slides.md
-hide: false
----
 
----
+3. Target the corresponding class inside the `gap` object and add the necessary gap to the default and hover states to fit your design
 
-# Monaco Editor
-
-Slidev provides built-in Monaco Editor support.
-
-Add `{monaco}` to the code block to turn it into an editor:
-
-```ts {monaco}
-import { ref } from 'vue'
-import { emptyArray } from './external'
-
-const arr = ref(emptyArray(10))
+```ts
+  button: {
+      inline: 'transition-all',
+      gap: {
+        xl: 'gap-x-2.5 hover:gap-x-5',
+      },
+      // ...rest of the object
+  },
 ```
 
-Use `{monaco-run}` to create an editor that can execute the code directly in the slide:
+4. Use the button component
 
-```ts {monaco-run}
-import { version } from 'vue'
-import { emptyArray, sayHello } from './external'
-
-sayHello()
-console.log(`vue ${version}`)
-console.log(emptyArray<number>(10).reduce(fib => [...fib, fib.at(-1)! + fib.at(-2)!], [1, 1]))
+```html
+<UButton
+  label="Button"
+  icon="streamline-emojis:backhand-index-pointing-right-1"
+  :trailing="true"
+/>
 ```
 
+<!--
+
+# SLIDE 22
+
+-->
+
 ---
-layout: center
-class: text-center
+
+Example 2 ADD IMAGES OR BETTER TRY TO HAVE A SCREEN RECORDING
+
+1. Like in the previous example, inside the `button`object, identify the class that is wrapping the label and the icon.
+
+```ts
+  button: {
+      inline: '',
+      // ...rest of the object
+  },
+```
+
+2. Add the group class. ([See tailwind documentation about the group class](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-parent-state))
+
+```ts
+  button: {
+      inline: 'group',
+      // ...rest of the object
+  },
+```
+
+3. Add the necessary classes to the `base` property inside the `icon` object order to make you icon rotate 180° on hover
+
+```ts
+  button: {
+      inline: 'group',
+      icon: {
+        base: 'transition-transform duration-300 group-hover:rotate-180',
+      },
+      // ...rest of the object
+  },
+```
+
+<!--
+
+# SLIDE 23
+
+-->
+
+<style> 
+p, li {
+  font-size: 12px;
+} 
+</style>
+
 ---
 
-# Learn More
+4. Use the button component
 
-[Documentation](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/resources/showcases)
+```html
+<UButton
+  label="Button"
+  icon="streamline-emojis:backhand-index-pointing-up-1"
+  :trailing="true"
+/>
+```
 
-<PoweredBySlidev mt-10 />
+<!--
+
+# SLIDE 24
+
+-->
+
+---
