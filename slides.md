@@ -1,6 +1,6 @@
 ---
 # You can also start simply with 'default'
-theme: seriph
+theme: default
 # random image from a curated Unsplash collection by Anthony
 # like them? see https://unsplash.com/collections/94734566/slidev
 # background: https://cover.sli.dev
@@ -45,58 +45,84 @@ selectable: true
 
 ## Table of Content
 
-Buttons
+<br />
+
+### Buttons
 
 <div v-click>
 
-Primary buttons. Setting up global styles
+🟢 Primary buttons. Setting up global styles (branch: primary-buttons)
 
 </div>
 
 <div v-click>
 
-Example of secondary and accent buttons
+🟢 Example of secondary and accent buttons
 
 </div>
 
 <div v-click>
 
-Change the shape (structual styles) of buttons.
+🟢 Change the shape (structual styles) of buttons.
 
 </div>
 <div v-click>
 
-Change the variant of buttons
+🟢 Change the variant of buttons
 
 </div>
 <div v-click>
 
-Change the hover styles of buttons. (Including, hover bg color and How to make a button outline on hover, when outline is primary or antoher color.)
-
-</div>
-
-<div v-click>
-
-How to add icons to buttons. Leading and trailing with icons from iconify and with icons from our svg components.
+🟢 Change the hover styles of buttons. (Including, hover bg color and How to make a button outline on hover, when outline is primary or antoher color.)
 
 </div>
 
 <div v-click>
 
-how to create Buttons with icons that are animated
-
-</div>
-<div v-click>
-
-Change icon's color inside a button
+🟢 How to add icons to buttons. Leading and trailing with icons from iconify and with icons from our svg components.
 
 </div>
 
 <div v-click>
 
-white, gray and black buttons
+🟢 how to create Buttons with icons that are animated
 
 </div>
+<div v-click>
+
+🟢 Change icon's color inside a button
+
+</div>
+
+<div v-click>
+
+🟢 white, gray and black buttons
+
+</div>
+
+<style> 
+
+
+
+h2, h3 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+
+h2 {
+  font-size: 28px;
+} 
+
+h3 {
+  font-size: 20px;
+} 
+
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+</style>
 
 <!--
 # SLIDE 2
@@ -104,9 +130,13 @@ white, gray and black buttons
 
 ---
 
-## Primary buttons. Setting up global styles
+<div class="flex items-center space-x-2">
+<h2>Primary Buttons</h2><img src="/images/btn-primary.png" width="80">
+</div>
 
-In order to use the primary color in my buttons, you need to make sure that the primary color is defined in tailwind.config.js
+<p class="text-xs">📂 Reference Branch: <code>primary-buttons</code></p>
+
+<p class="text-sm">To set up the <code>primary</code>color globally, ensure that it is properly defined in your<code>tailwind.config.js</code>file before using it in your buttons.</p>
 
 ```js
  colors: {
@@ -127,7 +157,25 @@ In order to use the primary color in my buttons, you need to make sure that the 
 
 ```
 
-And that's it! By default, Nuxt UI ships the buttons as primary [see button config object](https://ui.nuxt.com/components/button#config). In the suite-starter, the color property is not being overridden, therefore, by deafult our buttons are primary. So, we don't need to do anything else here!
+<style> 
+h2, h3 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+
+h2 {
+  font-size: 28px;
+} 
+
+h3 {
+  font-size: 20px;
+} 
+
+p {
+  color: #e2e8f0;
+} 
+
+</style>
 
 <!--
 # SLIDE 3
@@ -135,48 +183,12 @@ And that's it! By default, Nuxt UI ships the buttons as primary [see button conf
 
 ---
 
-## Secondary and Accent Buttons
+And that’s it! 🎉 By default, Nuxt UI ships buttons as `primary`. You can check Nuxt UI’s [button config object](https://ui.nuxt.com/components/button#config) for reference.
 
-### Secondary Buttons
+In the `suite-starter`, the `color` property is not overridden in the `app.config.ts` file. Therefore, by default, all buttons are `primary`, and **no additional configuration is needed**.
 
-Here we have 2 possibilities.
-
-A. If all the buttons in the page are secondary, set up the secondary color in the app.config.ts file
-
-1. First define the secondary color in tailwind.config.js
-
-```js
-     colors: {
-        brand: {
-          50: '#f6f2ff',
-          100: '#ede8ff',
-          200: '#ded4ff',
-          300: '#c7b1ff',
-          400: '#ab85ff',
-          500: '#9c63ff',
-          600: '#8530f7',
-          700: '#771ee3',
-          800: '#6318bf',
-          900: '#52169c',
-          950: '#330b6a',
-        },
-
-        green: {
-          ...colors.green, // Spread the existing green color object
-          500: '#04784e', // Override the 500 shade with your secondary color
-        },
-      },
-```
-
-<!--
-# SLIDE 4
--->
-
----
-
-2. Then use green as the default color of buttons in app.config.ts
-
-```js
+```ts
+// app.config.ts
     button: {
       color: {
         gray: {
@@ -187,11 +199,136 @@ A. If all the buttons in the page are secondary, set up the secondary color in t
         outline: 'ring-1',
       },
       default: {
-        color: 'green',
         size: 'xl',
       },
     },
 ```
+
+Now, you can use the `UButton` component like this:
+
+```html
+<UButton :label="t('buttons.workshop.primary')" />
+```
+
+<style> 
+h2, h3 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+
+h2 {
+  font-size: 28px;
+} 
+
+h3 {
+  font-size: 20px;
+} 
+
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+a {
+  color: #34d399 !important; 
+  text-decoration: underline !important;
+  text-decoration-style: solid !important; 
+  text-decoration-thickness: 1px !important; 
+  text-underline-offset: 2px !important; 
+  border-bottom: none !important; 
+  transition: color 0.2s ease-in-out; 
+}
+
+a:hover {
+  color: #efd203 !important; 
+}
+
+ 
+
+
+</style>
+
+<!--
+# SLIDE 4
+-->
+
+---
+
+<h2>Secondary and Accent Buttons</h2>
+
+<div class="flex items-center space-x-4">
+<img src="/images/btn-secondary.png" width="80">
+<img src="/images/btn-accent.png" width="80">
+</div>
+
+<p>Set the <code>secondary</code> or <code>accent</code> color globally by following these steps:</p>
+
+<div v-click>
+
+<p>1️⃣ If you have a custon color, define it in <code>tailwind.config.js</code></p>
+
+<div v-click class="flex flex justify-around">
+
+```ts
+  // secondary
+     colors: {
+      ...
+        green: {
+          ...colors.green,
+          500: '#04784e',
+        },
+      },
+```
+
+```ts
+ // accent
+     colors: {
+      ....
+        yellow: {
+          50: '#fdfee8',
+          100: '#fdffc2',
+          200: '#feff87',
+          300: '#fff943',
+          400: '#ffea03',
+          500: '#efd203',
+          600: '#cea400',
+          700: '#a47604',
+          800: '#885c0b',
+          900: '#734b10',
+          950: '#432705',
+        },
+      },
+```
+
+</div>
+
+</div>
+
+<style> 
+h2, h3 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+
+h2 {
+  font-size: 28px;
+} 
+
+h3 {
+  font-size: 20px;
+} 
+
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+pre {
+
+  font-size: 14px;
+} 
+
+</style>
 
 <!--
 # SLIDE 5
@@ -199,16 +336,69 @@ A. If all the buttons in the page are secondary, set up the secondary color in t
 
 ---
 
-B. If most of the buttons are primary and just a couple of them are secondary, use the the `color` prop in the `UButton` component.
+<p>2️⃣ Set the corresponding <code>color</code>as the default button color in <code>app.config.ts</code></p>
 
-```vue
-<UButton color="green">
-      This is a secondary button
-</UButton>
+<div  class="flex justify-around">
+
+```ts
+  // secondary
+     button: {
+     ....
+      default: {
+        color: 'green',
+        size: 'xl',
+      },
+    },
 ```
+
+```ts
+ // accent
+   button: {
+     ....
+      default: {
+        color: 'yellow',
+        size: 'xl',
+      },
+    },
+```
+
+</div>
+
+<style> 
+
+
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+
+</style>
 
 <!--
 # SLIDE 6
+-->
+
+---
+
+<p>💡 If most buttons are primary but you need a <code>secondary</code> or <code>accent</code> button on a per-button basis, use the <code>color</code> prop in the <code>UButton</code> component. You still need to define your custom color in <code>tailwind.config.js</code>.</p>
+
+```vue
+<UButton color="green" :label="t('buttons.workshop.secondary')" />
+```
+
+<img src="/images/btn-secondary.png" width="80">
+
+<br />
+
+```vue
+<UButton color="yellow" :label="t('buttons.workshop.accent')" />
+```
+
+<img src="/images/btn-accent.png" width="80">
+
+<!--
+# SLIDE 7
 -->
 
 ---
@@ -245,7 +435,7 @@ A. If all the buttons in the page are `accent`, set up the accent color in the `
 ```
 
 <!--
-# SLIDE 7
+# SLIDE 8
 -->
 
 ---
@@ -998,6 +1188,132 @@ p, li {
 <!--
 
 # SLIDE 24
+
+-->
+
+---
+
+## Change icon's color inside a button
+
+ADD IMAGES
+
+By default the icon inside a button take the same color than the button's text.
+
+To globally change the icon's color, add the desired text color class to the `base` property inside the `icon` object. Always remember to define your custom color in `tailwind.config.js`.
+
+```ts
+  button: {
+      icon: {
+        base: 'text-lemon-400',
+      },
+      // ...rest of the object
+  },
+```
+
+If you want to change the icon color in a particular button, use the `ui` prop.
+
+```html
+<UButton
+  label="Button"
+  icon="material-symbols:account-circle"
+  :ui="{ icon: { base: 'text-lemon-400' } }"
+/>
+```
+
+<!--
+
+# SLIDE 25
+
+-->
+
+---
+
+## white, gray and black buttons
+
+You can also use the `white`, `gray` and `black` colors in your buttons, whether globally or by using the `color` prop.
+
+ADD IMAGES
+
+```ts
+  button: {
+     // ...rest of the object
+      default: {
+        color: 'white',
+        size: 'xl',
+      },
+  },
+```
+
+```html
+<UButton label="Button" icon="material-symbols:account-circle" color="white" />
+```
+
+If you have buttons with such colors, take into account that Nuxt UI provides pre-defined variants with those colors inside the `button` object. Therefore, if you need to costumize styles for buttons with such colors, do it in the corresponding variant property inside the 'color' object. Let's see an example in the next slide.
+
+<!--
+
+# SLIDE 26
+
+-->
+
+---
+
+For example, you have a white button variant ghost:
+
+```ts
+
+  button: {
+    // ...rest of the object
+       default: {
+        size: 'xl',
+        color: 'white',
+        variant: 'ghost',
+      },
+  },
+```
+
+ADD IMAGES
+
+You want to change the font color to be `text-lemon-500`. Change the class in the `ghost` property inside the `white` object:
+
+```ts
+
+  button: {
+    // ...rest of the object
+    color: {
+      white: {
+        ghost: 'text-lemon-500'
+    },
+  },
+  default: {
+    size: 'xl',
+    color: 'white',
+    variant: 'ghost',
+  },
+  },
+```
+
+ADD IMAGES
+
+<!--
+
+# SLIDE 27
+
+-->
+
+<style> 
+p {
+  font-size: 12px;
+} 
+</style>
+
+---
+
+## Thank you for your attention
+
+<!--
+
+# SLIDE 28
 
 -->
 
