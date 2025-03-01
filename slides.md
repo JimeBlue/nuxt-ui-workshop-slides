@@ -51,19 +51,19 @@ selectable: true
 
 <div v-click>
 
-🟢 Primary buttons. Setting up global styles (branch: primary-buttons)
+🟢 Primary Buttons
 
 </div>
 
 <div v-click>
 
-🟢 Example of secondary and accent buttons
+🟢 Secondary and Accent Buttons
 
 </div>
 
 <div v-click>
 
-🟢 Change the shape (structual styles) of buttons.
+🟢 Customize Shape and Font Styles
 
 </div>
 <div v-click>
@@ -255,6 +255,7 @@ a:hover {
 ---
 
 <h2>Secondary and Accent Buttons</h2>
+<p class="reference-branch">📂 Reference Branch: <code>btn-secondary-accent</code></p>
 
 <div class="flex items-center space-x-4">
 <img src="/images/btn-secondary.png" width="80">
@@ -262,8 +263,6 @@ a:hover {
 </div>
 
 <p>Set the <code>secondary</code> or <code>accent</code> color globally by following these steps:</p>
-
-<div v-click>
 
 <p>1️⃣ If you have a custon color, define it in <code>tailwind.config.js</code></p>
 
@@ -302,12 +301,10 @@ a:hover {
 
 </div>
 
-</div>
-
 <style> 
 h2, h3 {
   color: #00DC82;
-  font-size: 28px;
+
 } 
 
 h2 {
@@ -321,6 +318,11 @@ h3 {
 p {
   color: #e2e8f0;
   font-size: 14px;
+} 
+
+.reference-branch {
+
+  font-size: 12px;
 } 
 
 pre {
@@ -403,75 +405,153 @@ p {
 
 ---
 
-### Accent Buttons
+## Customize Shape and Font Styles
 
-For accent buttons we have the same 2 possibilities that we have for secondary buttons
+<p class="reference-branch">📂 Reference Branch: <code>btn-shape-and-font-styles</code></p>
 
-A. If all the buttons in the page are `accent`, set up the accent color in the `app.config.ts` file.
+<div v-click>
 
-1. First define the accent color in `tailwind.config.js`
+<ul>
+<li class="grid grid-cols-3 border-t border-l border-r">
 
-```js
-     colors: {
-        brand: {
-          50: '#f6f2ff',
-          100: '#ede8ff',
-          200: '#ded4ff',
-          300: '#c7b1ff',
-          400: '#ab85ff',
-          500: '#9c63ff',
-          600: '#8530f7',
-          700: '#771ee3',
-          800: '#6318bf',
-          900: '#52169c',
-          950: '#330b6a',
-        },
+<p class="text-sm table-heading">What do I want to customize?</p>
 
-        yellow: {
-          ...colors.yellow, // Spread the existing green color object
-          500: '#facc15', // Override the 500 shade with your secondary color
-        },
-      },
+<p class="text-sm table-heading">Button object property controlling this?</p>
+
+ <p class="text-sm table-heading flex justify-center">Result</p>
+
+ </li>
+
+<li class="grid grid-cols-3 border-t border-l border-r">
+
+<p class="text-sm"><code>border-radius</code></p>
+
+<div>
+
+```ts
+rounded: 'rounded-md',
 ```
 
+</div>
+
+ <p class="flex justify-center"><img src="/images/btn-border-radius.png" width="80"></p>
+
+ </li>
+
+ <li class="grid grid-cols-3 border">
+
+<p class="text-sm"><code>padding</code></p>
+
+<div>
+
+<p class="text-sm">The desired size inside the <code>padding</code> object. By default, the <code>suite-starter</code> has size <code>xl</code> for buttons.</p>
+
+```ts
+padding: {
+ xl: 'px-10 py-2.5'
+},
+```
+
+</div>
+
+ <p class="flex justify-center items-center"><img src="/images/btn-padding.png" class="w-40"></p>
+
+ </li>
+
+</ul>
+
+</div>
+
+<style> 
+
+h2 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+.reference-branch {
+  font-size: 12px;
+} 
+
+.table-heading {
+  color: #00DC82;
+} 
+
+</style>
 <!--
 # SLIDE 8
 -->
 
 ---
 
-2. Then use yellow as the default color of buttons in `app.config.ts`
+<ul>
+<li class="grid grid-cols-3 border-t border-l border-r">
 
-```js
-    button: {
-      color: {
-        gray: {
-          shadow: 'shadow-none',
-        },
-      },
-      variant: {
-        outline: 'ring-1',
-      },
-      default: {
-        color: 'green',
-        size: 'xl',
-      },
-    },
+<p class="text-sm table-heading">What do I want to customize?</p>
+
+<p class="text-sm table-heading">Button object property controlling this?</p>
+
+ <p class="text-sm table-heading flex justify-center">Result</p>
+
+ </li>
+
+<li class="grid grid-cols-3 border-t border-l border-r">
+
+<p class="text-sm"><code>font-size</code></p>
+
+<div>
+
+<p class="text-sm">The desired size inside the <code>size</code> object. By default, the suite-starter has size <code>xl</code> for buttons.</p>
+
+```ts
+size: {
+ xl: 'text-4xl'
+},
 ```
 
-<!--
-# SLIDE 8
--->
+</div>
 
----
+ <p class="flex justify-center items-center"><img src="/images/btn-font-size.png" class="w-36"></p>
 
-B. If most of the buttons are primary and just a couple of them are accent, use the the `color` prop in the `UButton` component.
+ </li>
+ <li class="grid grid-cols-3 border">
 
-```vue
-<UButton color="yellow">
-      This is an accent button
-</UButton>
+<p class="text-sm"><code>font-weight</code></p>
+
+<div>
+
+```ts
+font: 'font-thin',
 ```
+
+</div>
+
+ <p class="flex justify-center items-center"><img src="/images/btn-font-weight.png" class="block w-40"></p>
+
+ </li>
+
+</ul>
+
+<style> 
+
+h2 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+.table-heading {
+  color: #00DC82;
+} 
+
+</style>
 
 <!--
 # SLIDE 9
@@ -479,173 +559,89 @@ B. If most of the buttons are primary and just a couple of them are accent, use 
 
 ---
 
-## Change the shape (structual styles) of buttons
+<ul>
+<li class="grid grid-cols-3 border-t border-l border-r ">
 
-What can I change?
+<p class="text-sm table-heading">What do I want to customize?</p>
 
-<div class="text-sm">
+<p class="text-sm table-heading">Button object property controlling this?</p>
 
-- Shape
-</div>
+ <p class="text-sm  flex justify-center">Result</p>
 
-<table>
-  <thead>
-    <tr>
-      <th>What do I need to change?</th>
-      <th>Which property of the button object should I target?</th>
-      <th>Result</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Border Radius</td>
-      <td><code>rounded: 'rounded-md',</code> </td>
-      <td><img src="/images/rounded-none-btn.png" width="80"></td>
-    </tr>
-     <tr>
-      <td>Padding</td>
-      <td> 
-       The desired size inside the <code>padding</code> object. By default, the suite-starter has size <code>xl</code> for buttons.
-        <pre><code>padding: {
- xl: 'px-10 py-2.5'
-},</code></pre> 
-      </td>
-      <td><img src="/images/padding-btn.png" width="80"></td>
-    </tr>
-      <tr>
-      <td>Font size</td>
-      <td> The desired size inside the <code>size</code> object. By default, the suite-starter has size <code>xl</code> for buttons.
-        <pre><code>size: {
- xl: 'text-4xl'
-},</code></pre>  </td>
-      <td><img src="/images/font-size-btn.png" width="80"></td>
-    </tr>
-     <tr>
-      <td>Font weight</td>
-      <td><code>font: 'font-thin',</code> </td>
-      <td><img src="/images/font-weight-btn.png" width="80"></td>
-    </tr>
-  </tbody>
-</table>
+ </li>
+<li class="grid grid-cols-3 border">
 
-<style>
-
-
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-    font-size: 12px;
-  }
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd; /* Add right border */
-  }
-  th {
-    background-color: #d4edda;
-    font-weight: bold;
-    color: green;
-  }
-   td:last-child, th:last-child {
-    border-right: none; /* Remove right border from last column */
-  }
-  img {
-    display: block;
-    margin: auto;
-  }
-</style>
-<!--
-# SLIDE 10
--->
-
----
-
-## What if I want my buttons to have a different shape, such as a skewed shape?
-
-There are 2 different ways of achieving that.
-
-Option A. Set up skewed buttons globally in `app.congig.ts`, by targetting the `base `property inside the `button` object:
-
-````md magic-move {lines: true}
-```ts
-
-    button: {
-      color: {
-        gray: {
-          shadow: 'shadow-none',
-        },
-      },
-      variant: {
-        outline: 'ring-1',
-      },
-      default: {
-        size: 'xl',
-      },
-    },
-```
-
-```ts {*|2|}
-
-    button: {
-      base: '-skew-x-12',
-      color: {
-        gray: {
-          shadow: 'shadow-none',
-        },
-      },
-      variant: {
-        outline: 'ring-1',
-      },
-      default: {
-        size: 'xl',
-      },
-    },
-```
-````
-
-<!--
-# SLIDE 10
--->
-
----
-
-Important! By choosing option A, I would be applying the skewed style to all my buttons, regardless of their variaty or color. And this implies overridig the skew class for buttons that are not supposed to be skewed, like the button in the header.
-
-insert image of sweked btn
+<p class="text-sm"><code>color</code></p>
 
 <div>
+<p class="text-sm">Change the class inside your button variant. By default buttons are variant solid</p>
 
-```html
-<UButton
-  color="gray"
-  variant="ghost"
-  icon="heroicons:globe-alt"
-  size="sm"
-  :label="locale"
-  :ui="{ base: '-skew-x-0' }"
-/>
+```ts
+   variant: {
+        ....
+        solid: 'text-yellow-200',
+   },
 ```
-
-<img
-  v-click
-  class="absolute bottom-24 left-16 w-24 opacity-50"
-  src="/images/arrow-left.png"
-  alt=""
-/>
 
 </div>
 
-insert image of non sweked btn
+ <p class="flex justify-center items-center"><img src="/images/btn-font-color.png" class="block w-40"></p>
+
+ </li>
+
+</ul>
+
+<div v-click>
+  <p>💡 All the mentioned styles can be configured either globally or by means of the <code>ui</code> prop. </p>
+
+  <div>
+```ts 
+  <UButton :label="t('buttons.workshop.example')" :ui="{ padding: { xl: 'px-16 py-2.5' } }" />
+```
+
+  </div>
+</div>
+
+<style> 
+
+h2 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+.table-heading {
+  color: #00DC82;
+} 
+
+</style>
 
 <!--
-# SLIDE 11
+# SLIDE 10
 -->
 
 ---
 
-Option B. Set up skewed buttons globally in `app.congig.ts`, by targetting only the `variant` of your skewed buttons inside the `button` object:
+<div class="flex space-x-6">
+  <h2>How to Create Skewed Buttons</h2>
+  <img
+  class="w-28"
+  src="/images/btn-skewed.png"
+  alt=""
+/>
+</div>
+
+<p class="reference-branch">📂 Reference Branch: <code>btn-skewed</code></p>
+
+<v-click>
+
+<p>
+  📌  Just add the necessary class to the object corresponding to your button`s variant.
+  In this example, buttons use the <code>solid</code> variant.
+</p>
 
 ````md magic-move {lines: true}
 ```ts
@@ -684,11 +680,65 @@ Option B. Set up skewed buttons globally in `app.congig.ts`, by targetting only 
 ```
 ````
 
-<v-click>
-
-This way buttons having a variant other than `solid`, like the buttons in the header, won't be skewed!
-
 </v-click>
+
+<style> 
+
+h2 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+.reference-branch {
+  font-size: 12px;
+} 
+
+</style>
+<!--
+# SLIDE 11
+-->
+
+---
+
+<p>🧠 Remember you can apply the skewed styling just to a particular button by using the <code>ui</code> prop.</p>
+
+```html
+<UButton
+  :label="t('buttons.workshop.example')"
+  :ui="{ variant: { solid: '-skew-x-12' } }"
+/>
+```
+
+<p>📝 You can also create a skewed button by adding the necessary class to the <code>base</code> object. However, keep in mind that this will cause all your buttons to be skewed, regardless of their variant.</p>
+
+```ts
+
+    button: {
+      base: '-skew-x-12',
+      ....
+    },
+```
+
+<style> 
+
+h2 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+.reference-branch {
+  font-size: 12px;
+} 
+
+</style>
 
 <!--
 # SLIDE 12
@@ -696,36 +746,84 @@ This way buttons having a variant other than `solid`, like the buttons in the he
 
 ---
 
-## Change the variant of your buttons
+<h2>Change the variant of buttons</h2>
+<p class="reference-branch">📂 Reference Branch: <code>btn-change-variant</code></p>
 
-- By default Nuxt UI ships buttons with variant `solid`, which is not being overrriden in the suite-starter
-- If you want all the buttons in the page to be a variant different from `solid`, set it globally by targetting the property `variant` inside the `default`object.
+<v-click>
 
+  <p>  📌 Do it globally by adding the <code>variant</code> property to the <code>default</code> object</p>
+
+````md magic-move {lines: true}
 ```ts
+
     button: {
-      color: {
-        gray: {
-          shadow: 'shadow-none',
-        },
+   ....
+      default: {
+        size: 'xl',
       },
-      variant: {
-        outline: 'ring-1',
-      },
+    },
+```
+
+```ts {*|5-6|}
+
+    button: {
+  ...
       default: {
         size: 'xl',
         variant: 'outline',
       },
     },
 ```
+````
 
-- If you want just a couple of buttons to be a specific variant use in the `variant` prop inside the `<UButton>` component.
+</v-click>
+
+<br />
+<v-click>
+
+<p>  📌 Alternatively, you can change the variant of individual buttons by using the <code>variant</code> prop.</p>
 
 ```html
-<UButton variant="solid">Button</UButton>
+<UButton variant="soft" :label="t('buttons.workshop.soft')" />
 ```
+
+</v-click>
+
+<style> 
+
+h2 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+.reference-branch {
+  font-size: 12px;
+} 
+
+</style>
 
 <!--
 # SLIDE 13
+-->
+
+---
+
+### Slide 14
+
+<!--
+# SLIDE 14
+-->
+
+---
+
+## Slide 15
+
+<!--
+# SLIDE 15
 -->
 
 ---
@@ -758,7 +856,7 @@ This way buttons having a variant other than `solid`, like the buttons in the he
 or....
 
 <!--
-# SLIDE 14
+# SLIDE 16
 -->
 
 ---
@@ -801,7 +899,7 @@ add as backgrond color a totally different color. Don't forget to definde the co
 ```
 
 <!--
-# SLIDE 15
+# SLIDE 17
 -->
 
 ---
@@ -815,7 +913,7 @@ add as backgrond color a totally different color. Don't forget to definde the co
 ```
 
 <!--
-# SLIDE 16
+# SLIDE 18
 -->
 
 ---
@@ -905,7 +1003,7 @@ add as backgrond color a totally different color. Don't forget to definde the co
 
 <!--
 
-# SLIDE 17
+# SLIDE 19
 
 -->
 
@@ -929,7 +1027,7 @@ As always, use the `ui` prop if you just want a specific button to have be outli
 
 <!--
 
-# SLIDE 18
+# SLIDE 20
 
 -->
 
@@ -955,7 +1053,7 @@ Here we have different possibilities:
 
 <!--
 
-# SLIDE 19
+# SLIDE 21
 
 -->
 
@@ -1025,7 +1123,7 @@ By default Nuxt UI ships buttons with leading icons, i.e. the icon is preceeds t
 
 <!--
 
-# SLIDE 20
+# SLIDE 22
 
 -->
 
@@ -1055,7 +1153,7 @@ By default Nuxt UI ships buttons with leading icons, i.e. the icon is preceeds t
 
 <!--
 
-# SLIDE 21
+# SLIDE 23
 
 -->
 
