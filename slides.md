@@ -26,15 +26,32 @@ selectable: true
    <span>Welcome to the</span> <span class="green-text">Nuxt UI</span> <span>Workshop!</span>
  </h1>
 
- <p>
-        <span>Let's dive into quickly building efficient UIs with</span
-        > <span class="green-text">Nuxt UI</span>!
-  </p>🎨💻
+  <div class="text-left text-sm">
+    <span>There is a <a href="https://bitbucket.org/airlst/nuxt-ui-workshop-examples/src/main/" target="_blank" class="link">reference repository</a> that contains all the examples and code snippets covered in each topic.</span>
+    <span> You'll find a <span class="reference-branch">📂 Reference Branch</span> label indicating which branch contains the relevant code for that topic.</span>
+  </div>
 
 <style> 
 .green-text {
   color: #00DC82;
 } 
+
+.text {
+  color: #e2e8f0;
+} 
+.link {
+ color:  #34d399 !important; font-size: 14px !important; 
+  text-decoration: underline !important;
+  text-decoration-style: solid !important; 
+  text-decoration-thickness: 1px !important; 
+  text-underline-offset: 2px !important; 
+  border-bottom: none !important; 
+  transition: color 0.2s ease-in-out; 
+}
+.reference-branch {
+  font-size: 12px;
+} 
+
 </style>
 
 <!--
@@ -43,65 +60,53 @@ selectable: true
 
 ---
 
-## Table of Content
+## Topics
 
 <br />
 
 ### Buttons
 
-<div v-click>
-
-🟢 Primary Buttons
-
-</div>
-
-<div v-click>
-
-🟢 Secondary and Accent Buttons
-
-</div>
-
-<div v-click>
-
-🟢 Customize Shape and Font Styles
-
-</div>
-<div v-click>
-
-🟢 Change the variant of buttons
-
-</div>
-<div v-click>
-
-🟢 Customize button hover styles
-
-</div>
-
-<div v-click>
-
-🟢 How to add icons to buttons
-
-</div>
-<div v-click>
-
-🟢 Change the icon color inside a button
-
-</div>
-
-<div v-click>
-
-🟢 Examples of button with icon that animate on hover
-
-</div>
-
-<div v-click>
-
-🟢 White, gray and black buttons
-
-</div>
+<ul class="space-y-2 list-disc">
+  <li  @click="$slidev.nav.go(3)" class="cursor-pointer w-fit w-fit">
+  🟢 Primary Buttons
+  </li>
+  
+  <li  @click="$slidev.nav.go(5)" class="cursor-pointer w-fit">
+  🟢 Secondary and Accent Buttons
+  </li>
+  
+  <li  @click="$slidev.nav.go(8)" class="cursor-pointer w-fit">
+  🟢 Customize Shape and Font Styles
+  </li>
+  
+  <li  @click="$slidev.nav.go(13)" class="cursor-pointer w-fit">
+  🟢 Change the variant of buttons
+  </li>
+  
+  <li  @click="$slidev.nav.go(14)" class="cursor-pointer w-fit">
+  🟢 Customize button hover styles
+  </li>
+  
+  <li
+    @click="$slidev.nav.go(18)" class="cursor-pointer w-fit">
+  🟢 How to add icons to buttons
+  </li>
+  
+  <li  @click="$slidev.nav.go(20)" class="cursor-pointer w-fit">
+  🟢 Change the icon color inside a button
+  </li>
+  
+  <li  @click="$slidev.nav.go(21)" class="cursor-pointer w-fit">
+  🟢 Examples of button with icon that animate on hover
+  
+  </li>
+  
+  <li  @click="$slidev.nav.go(23)" class="cursor-pointer w-fit">
+  🟢 White, gray and black buttons
+  </li>
+</ul>
 
 <style> 
-
 
 
 h2, h3 {
@@ -121,6 +126,10 @@ p {
   color: #e2e8f0;
   font-size: 14px;
 } 
+
+ul {
+  list-style-type: none !important;
+}
 
 </style>
 
@@ -157,6 +166,8 @@ p {
 
 ```
 
+<div class="mt-6 flex justify-end"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
+
 <style> 
 h2, h3 {
   color: #00DC82;
@@ -174,6 +185,15 @@ h3 {
 p {
   color: #e2e8f0;
 } 
+.back {
+  color: #00DC82; 
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
 
 </style>
 
@@ -257,11 +277,6 @@ a:hover {
 <h2>Secondary and Accent Buttons</h2>
 <p class="reference-branch">📂 Reference Branch: <code>btn-secondary-accent</code></p>
 
-<div class="flex items-center space-x-4">
-<img src="/images/btn-secondary.png" width="80">
-<img src="/images/btn-accent.png" width="80">
-</div>
-
 <p>Set the <code>secondary</code> or <code>accent</code> color globally by following these steps:</p>
 
 <p>1️⃣ If you have a custon color, define it in <code>tailwind.config.js</code></p>
@@ -301,6 +316,10 @@ a:hover {
 
 </div>
 
+<div class="relative">
+  <div class="flex justify-end absolute bottom-0 right-4"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
+</div>
+
 <style> 
 h2, h3 {
   color: #00DC82;
@@ -325,10 +344,24 @@ p {
   font-size: 12px;
 } 
 
-pre {
+pre, code {
+  font-size: 10px !important;
+}
 
-  font-size: 14px;
-} 
+
+.back {
+  color: #00DC82; 
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
+
+
+
+
 
 </style>
 
@@ -462,6 +495,8 @@ padding: {
 
 </div>
 
+<div class="mb-4 mr-2 flex justify-end absolute bottom-0 right-0"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
+
 <style> 
 
 h2 {
@@ -480,6 +515,16 @@ p {
 .table-heading {
   color: #00DC82;
 } 
+
+.back {
+  color: #00DC82; 
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
 
 </style>
 <!--
@@ -789,6 +834,8 @@ p {
 
 </v-click>
 
+<div class="mt-16 flex justify-end"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
+
 <style> 
 
 h2 {
@@ -803,6 +850,17 @@ p {
 .reference-branch {
   font-size: 12px;
 } 
+
+.back {
+  color: #00DC82; 
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
+
 
 </style>
 
@@ -840,6 +898,8 @@ p {
 
 </v-click>
 
+<div class="mb-6 flex justify-end"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
+
 <style> 
 
 h2 {
@@ -858,6 +918,17 @@ p {
 .reference-branch {
   font-size: 12px;
 } 
+
+.back {
+  color: #00DC82; 
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
+
 
 </style>
 
@@ -1074,6 +1145,8 @@ h2 { color: #00DC82; font-size: 28px; } h3 { color: #00DC82; font-size: 20px; } 
 
 </v-click>
 
+<div class="mt-6 flex justify-end"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
+
 <style>
 
 a {
@@ -1104,6 +1177,17 @@ h2 { color: #00DC82; font-size: 28px; }
 p { color: #e2e8f0; font-size: 14px; }
 
 .reference-branch { font-size: 12px; margin-top: -2px;}
+
+.back {
+  color: #00DC82; 
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
+
 
 </style>
 
@@ -1217,6 +1301,8 @@ p { color: #e2e8f0; font-size: 14px; }
   ```
 </v-click>
 
+<div class="mt-10 flex justify-end"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
+
 <style>
 
 h2 { color: #00DC82; font-size: 28px; } 
@@ -1224,6 +1310,17 @@ h2 { color: #00DC82; font-size: 28px; }
 p { color: #e2e8f0; font-size: 14px; }
 
 .reference-branch { font-size: 12px; margin-top: -2px;}
+
+.back {
+  color: #00DC82; 
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
+
 
 </style>
 
@@ -1263,6 +1360,8 @@ p { color: #e2e8f0; font-size: 14px; }
    ```
  </v-click>
 
+ <div class="mt-6 flex justify-end"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
+
 <style>
 
 h2 { color: #00DC82; font-size: 28px; } 
@@ -1281,6 +1380,17 @@ h3 { color: #00DC82; font-size: 22px; }
 .text { color: #e2e8f0; font-size: 14px; }
 
 .reference-branch { font-size: 12px; margin-top: -2px;}
+
+.back {
+  color: #00DC82; 
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
+
 
 </style>
 
@@ -1341,6 +1451,8 @@ h3 { color: #00DC82; font-size: 22px; }
 <UButton color="white" variant="solid" />
 ```
 
+<div class="mt-16 flex justify-end"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
+
 <style>
 
 h2 { color: #00DC82; font-size: 28px; } 
@@ -1359,6 +1471,17 @@ h2 { color: #00DC82; font-size: 28px; }
 .text { color: #e2e8f0; font-size: 14px; }
 
 .reference-branch { font-size: 12px; margin-top: -2px;}
+
+.back {
+  color: #00DC82; 
+  font-size: 12px; 
+  cursor: pointer;
+}
+
+.back:hover {
+  opacity: 0.5;
+}
+
 
 </style>
 
