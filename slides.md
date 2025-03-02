@@ -73,30 +73,30 @@ selectable: true
 </div>
 <div v-click>
 
-🟢 Change the hover styles of buttons. (Including, hover bg color and How to make a button outline on hover, when outline is primary or antoher color.)
+🟢 Customize button hover styles
 
 </div>
 
 <div v-click>
 
-🟢 How to add icons to buttons. Leading and trailing with icons from iconify and with icons from our svg components.
+🟢 How to add icons to buttons
+
+</div>
+<div v-click>
+
+🟢 Change the icon color inside a button
 
 </div>
 
 <div v-click>
 
-🟢 how to create Buttons with icons that are animated
-
-</div>
-<div v-click>
-
-🟢 Change icon's color inside a button
+🟢 Examples of button with icon that animate on hover
 
 </div>
 
 <div v-click>
 
-🟢 white, gray and black buttons
+🟢 White, gray and black buttons
 
 </div>
 
@@ -751,7 +751,7 @@ p {
 
 <v-click>
 
-  <p>  📌 Do it globally by adding the <code>variant</code> property to the <code>default</code> object</p>
+  <p class="flex items-center space-x-2">  <span>📌 Do it globally by adding the <code>variant</code> property to the <code>default</code> object.</span>   <span>(ℹ️ by default buttons have variant <code>solid</code>)</span></p>
 
 ````md magic-move {lines: true}
 ```ts
@@ -812,7 +812,54 @@ p {
 
 ---
 
-### Slide 14
+<h2>Customize button hover styles</h2>
+<v-click>
+  <h3 class="mt-4">📌 Change the background color</h3>
+  <p class="text-xs">📂 Reference Branch: <code>btn-hover-change-bg-color</code></p>
+</v-click>
+
+<v-click>
+
+1. <p><span>Identify the variant of the buttons. In this example the variant is <code>solid</code></span><span> (🧠 Remember, buttons remain solid unless you explicitly add the <code>variant</code> property.)</span></p>
+
+```ts
+    button: {
+      color: {
+        gray: {
+          shadow: 'shadow-none',
+        },
+      },
+      variant: {
+        outline: 'ring-1',
+      },
+      default: {
+        size: 'xl',
+      },
+    },
+```
+
+</v-click>
+
+<style> 
+
+h2 {
+  color: #00DC82;
+  font-size: 28px;
+} 
+h3 {
+  color: #00DC82;
+  font-size: 20px;
+} 
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+.reference-branch {
+  font-size: 12px;
+} 
+
+</style>
 
 <!--
 # SLIDE 14
@@ -820,107 +867,55 @@ p {
 
 ---
 
-## Slide 15
+2. <p>Add the class to your variant inside the <code>variant</code> object. You can add a different shade of your button's color or a custom color.</p>
 
+```ts
+  variant: {
+        ....
+        solid: 'hover:bg-primary-800',
+  },
+```
+
+```ts
+  variant: {
+        ....
+        solid: 'hover:bg-yellow-900',
+  },
+```
+
+ <v-click>
+   <p>💡 As always, use the <code>ui</code> prop if you want to change the backgound color of individual buttons.</p>
+   
+   ```html
+   <UButton
+    :ui="{ variant: { solid: 'hover:bg-yellow-900' } }"
+    :label="t('buttons.workshop.hover_me')"
+   />
+   ```
+ </v-click>
+
+<style> 
+
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+
+
+</style>
 <!--
 # SLIDE 15
 -->
 
 ---
 
-## Change the styles of buttons on hover. Explain variant vs color here?
+  <h3 class="mt-4">📌 Make button outline on hover</h3>
+    <p class="text-xs">📂 Reference Branch: <code>btn-hover-outline</code></p>
+<div>
 
-### Change on hover buttons' bg color globally
-
-1. Identify the variant of all your buttons. For example `solid`
-2. Target the `solid` property inside the `variant`.
-3. Add as backgrond color a different shade of your buttons' color:
-
-```ts
-    button: {
-      color: {
-        gray: {
-          shadow: 'shadow-none',
-        },
-      },
-      variant: {
-        outline: 'ring-1',
-        solid: 'bg-{color}-500 hover:bg-{color}-200',
-      },
-      default: {
-        size: 'xl',
-      },
-    },
-```
-
-or....
-
-<!--
-# SLIDE 16
--->
-
----
-
-add as backgrond color a totally different color. Don't forget to definde the color in `tailwind.config.js`:
-
-```js
-
-     lemon: {
-          50: '#fdfee8',
-          100: '#fdffc2',
-          200: '#feff87',
-          300: '#fff943',
-          400: '#ffea03',
-          500: '#efd203',
-          600: '#cea400',
-          700: '#a47604',
-          800: '#885c0b',
-          900: '#734b10',
-          950: '#432705',
-        },
-```
-
-```ts
-
-    button: {
-      color: {
-        gray: {
-          shadow: 'shadow-none',
-        },
-      },
-      variant: {
-        outline: 'ring-1',
-        solid: 'bg-{color}-500 hover:bg-lemon-500',
-      },
-      default: {
-        size: 'xl',
-      },
-    },
-```
-
-<!--
-# SLIDE 17
--->
-
----
-
-## Change hover backgound color of a particular button by using the `ui`prop.
-
-```html
-<UButton :ui="{ variant: { solid: 'bg-{color}-500 hover:bg-lemon-500' } }">
-  Button
-</UButton>
-```
-
-<!--
-# SLIDE 18
--->
-
----
-
-## How to make a buttons outline on hover
-
-1. Go to the `button`object and add the `solid` property to the `variant`object:
+<v-click>
+<p> 1. Go to the <code>button</code> object and add the <code>solid</code> property to the <code>variant</code> object.</p>
 
 ````md magic-move {lines: true}
 ```ts
@@ -959,9 +954,25 @@ add as backgrond color a totally different color. Don't forget to definde the co
 ```
 ````
 
+</v-click>
+
+</div>
+
+<style>
+
+h2 { color: #00DC82; font-size: 28px; } h3 { color: #00DC82; font-size: 20px; } p { color: #e2e8f0; font-size: 14px; }
+
+.reference-branch { font-size: 12px; }
+
+</style>
+
+<!--
+# SLIDE 16
+-->
+
 ---
 
-2. Add or change the necessary classes to have the outline style on hover
+<p>2. Add or change the necessary classes to create the outline style.</p>
 
 ````md magic-move {lines: true}
 ```ts
@@ -992,7 +1003,7 @@ add as backgrond color a totally different color. Don't forget to definde the co
       },
       variant: {
         outline: 'ring-1',
-        solid: 'ring-2 ring-{color}-500 hover:bg-transparent hover:text-primary-500 transition-all',
+        solid: 'ring-2 ring-primary hover:bg-transparent hover:text-primary-500 transition-all',
       },
       default: {
         size: 'xl',
@@ -1000,6 +1011,169 @@ add as backgrond color a totally different color. Don't forget to definde the co
     },
 ```
 ````
+
+<v-click>
+
+<p>💡 The outline and text color can match the button's color or be set to any other color.</p>
+
+</v-click>
+<v-click>
+
+<p>💡 You can create the style globally or apply it to individual buttons.</p>
+
+</v-click>
+
+<style>
+
+ p { color: #e2e8f0; font-size: 14px; }
+
+
+
+</style>
+
+<!--
+# SLIDE 17
+-->
+
+---
+
+  <h2 class="mt-4">How to add icons to buttons</h2>
+  <p class="reference-branch">📂 Reference Branch: <code>btn-add-icon</code></p>
+
+<span class="special">📌 Using any icon from</span> [Iconify](https://icones.js.org/).
+
+<v-click>
+
+<p>1.  Use the <code>icon</code> prop with the desired icon.</p>
+
+```html
+<UButton icon="i-heroicons-pencil-square" />
+```
+
+</v-click>
+
+<v-click>
+
+<p>
+  <span>2. Use the <code>leading</code> or <code>trailing</code> prop to set the icon position.</span> <span>By default, icons are<code>leading.</code></span>
+    <a href="https://ui.nuxt.com/components/button#icon" target="_blank" class="link">Check out the Nuxt UI documentation.</a>
+</p>
+
+<img src="/images/btn-iconify-leading.png" width="80">
+
+```html
+<UButton icon="i-heroicons-pencil-square" />
+```
+
+<br />
+<img src="/images/btn-iconify-trailing.png" width="80">
+
+```html
+<UButton icon="i-heroicons-pencil-square" :trailing="true" />
+```
+
+</v-click>
+
+<style>
+
+a {
+  color: #34d399 !important; 
+  font-size: 20px !important; 
+  text-decoration: underline !important;
+  text-decoration-style: solid !important; 
+  text-decoration-thickness: 1px !important; 
+  text-underline-offset: 2px !important; 
+  border-bottom: none !important; 
+  transition: color 0.2s ease-in-out; 
+} 
+
+.link {
+ color:  #34d399 !important; font-size: 14px !important; 
+  text-decoration: underline !important;
+  text-decoration-style: solid !important; 
+  text-decoration-thickness: 1px !important; 
+  text-underline-offset: 2px !important; 
+  border-bottom: none !important; 
+  transition: color 0.2s ease-in-out; 
+}
+
+h2 { color: #00DC82; font-size: 28px; } 
+
+.special { color: #00DC82; font-size: 20px; } 
+
+p { color: #e2e8f0; font-size: 14px; }
+
+.reference-branch { font-size: 12px; margin-top: -2px;}
+
+</style>
+
+<!--
+# SLIDE 18
+-->
+
+---
+
+<p class="special">📌 Using a custom icon</p>
+
+<v-click>
+
+   <p>1. Use the <code>#leading </code>or <code>#trailing</code> slot to set the content of the icon.</p>
+  
+  ```html
+  <UButton label="Button">
+    <template #trailing> </template>
+  </UButton>
+  ```
+  
+  <br />
+</v-click>
+
+<v-click>
+  <p>2. Use your icon component inside the slot.</p>
+  
+  ```html
+  <UButton label="Button">
+    <template #trailing>
+      <Brain class="w-8" />
+    </template>
+  </UButton>
+  ```
+  
+  <img src="/images/btn-icon-custom-trailing.png" width="80">
+</v-click>
+
+<style>
+
+a {
+  color: #34d399 !important; 
+  font-size: 20px !important; 
+  text-decoration: underline !important;
+  text-decoration-style: solid !important; 
+  text-decoration-thickness: 1px !important; 
+  text-underline-offset: 2px !important; 
+  border-bottom: none !important; 
+  transition: color 0.2s ease-in-out; 
+} 
+
+.link {
+ color:  #34d399 !important; font-size: 14px !important; 
+  text-decoration: underline !important;
+  text-decoration-style: solid !important; 
+  text-decoration-thickness: 1px !important; 
+  text-underline-offset: 2px !important; 
+  border-bottom: none !important; 
+  transition: color 0.2s ease-in-out; 
+}
+
+h2 { color: #00DC82; font-size: 28px; } 
+
+.special { color: #00DC82; font-size: 20px; } 
+
+p { color: #e2e8f0; font-size: 14px; }
+
+.reference-branch { font-size: 12px; margin-top: -2px;}
+
+</style>
 
 <!--
 
@@ -1009,21 +1183,49 @@ add as backgrond color a totally different color. Don't forget to definde the co
 
 ---
 
-Important: if you want to have an outline colour different from your buttons' color, just don't forget to define the custom color in `tailwind.config.js`. Then, use the color as in step 2.
+<h2>Change the Icon Color Inside a Button</h2>
+<p class="reference-branch">📂 Reference Branch: <code>btn-change-icon-color</code></p>
+
+<v-click>
+  <p>By default the icon inside a button take the same color than the button’s text.</p>
+</v-click>
+
+<v-click>
+  <p>To change the icon's color globally or for individual buttons, add a text color class to the <code>base</code> property within the <code>icon</code> object.</p>
 
 ```ts
-solid: 'ring-2 ring-{color}-500 hover:ring-lemon-500 hover:bg-transparent hover:text-lemon-500 transition-all',
+
+    button: {
+     ....
+      icon: {
+        base: 'text-yellow-300',
+      },
+    },
 ```
 
-As always, use the `ui` prop if you just want a specific button to have be outline on hover.
+</v-click>
 
-```html
-<UButton
-  :ui="{ variant: { solid: 'ring-2 ring-{color}-500 hover:ring-orange-500 hover:bg-transparent hover:text-orange-500 transition-all' } }"
->
-  Button
-</UButton>
-```
+<v-click>
+  <p>If you're using a custom icon, just add  a text color class within the icon's component.</p>
+  
+  ```html
+  <UButton :label="t('buttons.workshop.example')">
+    <template #trailing>
+      <Trash class="w-4 text-green-500" />
+    </template>
+  </UButton>
+  ```
+</v-click>
+
+<style>
+
+h2 { color: #00DC82; font-size: 28px; } 
+
+p { color: #e2e8f0; font-size: 14px; }
+
+.reference-branch { font-size: 12px; margin-top: -2px;}
+
+</style>
 
 <!--
 
@@ -1033,23 +1235,54 @@ As always, use the `ui` prop if you just want a specific button to have be outli
 
 ---
 
-## How to add icons to buttons. Leading and trailing with icons from iconify and with icons from our svg components.
+<h2>Examples of button with icon that animate on hover</h2>
+<p class="reference-branch">📂 Reference Branch: <code>btn-animated-icon</code></p>
 
-Here we have different possibilities:
+<Button  m="t-4" />
 
 <v-click>
+<p class="text"><span>1. Inside the <code>button</code> object, identify the property that is wrapping the <code>label</code> and the <code>icon</code>.</span> <span>📝 By default that property is <code>inline</code>.   But if you are using the <a href="https://ui.nuxt.com/components/button#block" target="_blank" class="link">block</a> prop, then the wrapper property will be <code>block</code>.</span></p>
 
-1. Add Leading or trailing icons, where the icons come from iconify
+```ts
+  button: {
+      inline: '',
+      ....
+  },
+```
 
 </v-click>
 
-<v-click>
+ <v-click>
+   <p class="text">2. Add a transition</p>
+   
+   ```ts
+    button: {
+        inline: 'transition-all',
+        ....
+    },
+   ```
+ </v-click>
 
-2. Add Leading or trailing icons, where the icons come from our svg component
+<style>
 
-</v-click>
+h2 { color: #00DC82; font-size: 28px; } 
+h3 { color: #00DC82; font-size: 22px; } 
 
-<v-click>Let's explore them </v-click>
+.link {
+ color:  #34d399 !important; font-size: 14px !important; 
+  text-decoration: underline !important;
+  text-decoration-style: solid !important; 
+  text-decoration-thickness: 1px !important; 
+  text-underline-offset: 2px !important; 
+  border-bottom: none !important; 
+  transition: color 0.2s ease-in-out; 
+}
+
+.text { color: #e2e8f0; font-size: 14px; }
+
+.reference-branch { font-size: 12px; margin-top: -2px;}
+
+</style>
 
 <!--
 
@@ -1059,145 +1292,7 @@ Here we have different possibilities:
 
 ---
 
-## Add Leading or trailing icons, where the icons come from iconify
-
-By default Nuxt UI ships buttons with leading icons, i.e. the icon is preceeds the label. Therefore, If you add an icon to a button like this, you'll get the following button:
-
-```html
-<UButton icon="i-heroicons-pencil-square" label="Button" />
-```
-
-<img src="/images/leading-btn-iconify.png" width="80">
-
-<p class="text-xs"> Nevertheless, you can use the <code>leading</code> and <code>trailing</code> props to set the icon position.</p>
-
-<table>
-  <thead>
-    <tr>
-      <th>Prop</th>
-      <th>Result</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td><code>trailing: true</code></td>
-      <td>add image</td>
-    </tr>
-    <tr>
-      <td><code>trailing: false</code></td>
-      <td>add image</td>
-    </tr>
-    <tr>
-      <td><code>leading: false</code></td>
-      <td>add image</td>
-    </tr>
-  </tbody>
-</table>
-
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    border: 1px solid #ddd;
-    font-size: 12px;
-  }
-  th, td {
-    padding: 10px;
-    text-align: left;
-    border-bottom: 1px solid #ddd;
-    border-right: 1px solid #ddd; /* Add right border */
-  }
-  th {
-    background-color: #34d399;
-    font-weight: bold;
-    color: white;
-  }
-   td:last-child, th:last-child {
-    border-right: none; /* Remove right border from last column */
-  }
-  img {
-    display: block;
-    margin: auto;
-  }
-</style>
-
-<!--
-
-# SLIDE 22
-
--->
-
----
-
-## Add Leading or trailing icons, where the icons come from our svg component
-
-1. Use the `#leading`or `#trailing` slot to set the content of the icon.
-
-```html
-<UButton label="Button">
-  <template #trailing> </template>
-</UButton>
-```
-
-2. Use your icon component as you normally do inside the slot
-
-```html
-<UButton label="Button">
-  <template #trailing>
-    <Heart class="mx-auto h-[38px]" />
-  </template>
-</UButton>
-```
-
-<img src="/images/btn-icon-trainling-custom.png" alt="" class="w-24" />
-
-<!--
-
-# SLIDE 23
-
--->
-
----
-
-## How to create Buttons with icons that are animated
-
-Example 1 ADD IMAGES OR BETTER TRY TO HAVE A SCREEN RECORDING
-
-If you want to create the animation globally, follow these steps. If you want to apply the animation to a specific button, just do the same using the `ui` prop.
-
-1. Inside the `button`object, identify the class that is wrapping the label and the icon. Note: By default that class is `inline`. But if you are using the `block` prop to make the Button fill the width of its container ([See example in documentation](https://ui.nuxt.com/components/button#block)), then the wrapper class will be `block`.
-
-```ts
-  button: {
-      inline: '',
-      // ...rest of the object
-  },
-```
-
-2. Add a transition
-
-```ts
-  button: {
-      inline: 'transition-all',
-      // ...rest of the object
-  },
-```
-
-<style> 
-p, li {
-  font-size: 12px;
-} 
-</style>
-
-<!--
-
-# SLIDE 22
-
--->
-
----
-
-3. Target the corresponding class inside the `gap` object and add the necessary gap to the default and hover states to fit your design
+ <p class="text"> 3. Add the necessary gap to fit your design</p>
 
 ```ts
   button: {
@@ -1205,19 +1300,16 @@ p, li {
       gap: {
         xl: 'gap-x-2.5 hover:gap-x-5',
       },
-      // ...rest of the object
+      ....
   },
 ```
 
-4. Use the button component
+<style>
 
-```html
-<UButton
-  label="Button"
-  icon="streamline-emojis:backhand-index-pointing-right-1"
-  :trailing="true"
-/>
-```
+
+.text { color: #e2e8f0; font-size: 14px; }
+
+</style>
 
 <!--
 
@@ -1227,37 +1319,48 @@ p, li {
 
 ---
 
-Example 2 ADD IMAGES OR BETTER TRY TO HAVE A SCREEN RECORDING
+<h2>White, Gray and Black Buttons</h2>
+<p class="reference-branch">📂 Reference Branch: <code>btn-white-gray-black</code></p>
 
-1. Like in the previous example, inside the `button`object, identify the class that is wrapping the label and the icon.
+<p class="text">📌  Nuxt UI provides pre-defined variants for white, gray, and black buttons. If you need to customize styles for these colors, modify the corresponding variant property inside the <code>color</code> object."</p>
 
-```ts
-  button: {
-      inline: '',
-      // ...rest of the object
-  },
-```
-
-2. Add the group class. ([See tailwind documentation about the group class](https://v3.tailwindcss.com/docs/hover-focus-and-other-states#styling-based-on-parent-state))
+<p class="text">💡 <span class="underline">Example:</span> change the text color of a <code>white</code> button variant <code>solid</code></p>
 
 ```ts
-  button: {
-      inline: 'group',
-      // ...rest of the object
-  },
-```
-
-3. Add the necessary classes to the `base` property inside the `icon` object order to make you icon rotate 180° on hover
-
-```ts
-  button: {
-      inline: 'group',
-      icon: {
-        base: 'transition-transform duration-300 group-hover:rotate-180',
+    button: {
+      color: {
+        white: {
+          solid: 'text-primary-600',
+        },
       },
-      // ...rest of the object
-  },
+      .....
+    },
 ```
+
+```html
+<UButton color="white" variant="solid" />
+```
+
+<style>
+
+h2 { color: #00DC82; font-size: 28px; } 
+
+
+.link {
+ color:  #34d399 !important; font-size: 14px !important; 
+  text-decoration: underline !important;
+  text-decoration-style: solid !important; 
+  text-decoration-thickness: 1px !important; 
+  text-underline-offset: 2px !important; 
+  border-bottom: none !important; 
+  transition: color 0.2s ease-in-out; 
+}
+
+.text { color: #e2e8f0; font-size: 14px; }
+
+.reference-branch { font-size: 12px; margin-top: -2px;}
+
+</style>
 
 <!--
 
@@ -1265,153 +1368,25 @@ Example 2 ADD IMAGES OR BETTER TRY TO HAVE A SCREEN RECORDING
 
 -->
 
-<style> 
-p, li {
-  font-size: 12px;
-} 
-</style>
-
 ---
 
-4. Use the button component
+<div class="text">
+  <p>🚀 "That’s it for today! Now let's build amazing buttons with Nuxt UI!"</p>
+  <p>💚 Thanks for your time!</p>
+</div>
 
-```html
-<UButton
-  label="Button"
-  icon="streamline-emojis:backhand-index-pointing-up-1"
-  :trailing="true"
-/>
-```
+<style>
 
+
+
+.text { color: #e2e8f0; font-size: 14px; }
+
+
+
+</style>
 <!--
 
 # SLIDE 24
-
--->
-
----
-
-## Change icon's color inside a button
-
-ADD IMAGES
-
-By default the icon inside a button take the same color than the button's text.
-
-To globally change the icon's color, add the desired text color class to the `base` property inside the `icon` object. Always remember to define your custom color in `tailwind.config.js`.
-
-```ts
-  button: {
-      icon: {
-        base: 'text-lemon-400',
-      },
-      // ...rest of the object
-  },
-```
-
-If you want to change the icon color in a particular button, use the `ui` prop.
-
-```html
-<UButton
-  label="Button"
-  icon="material-symbols:account-circle"
-  :ui="{ icon: { base: 'text-lemon-400' } }"
-/>
-```
-
-<!--
-
-# SLIDE 25
-
--->
-
----
-
-## white, gray and black buttons
-
-You can also use the `white`, `gray` and `black` colors in your buttons, whether globally or by using the `color` prop.
-
-ADD IMAGES
-
-```ts
-  button: {
-     // ...rest of the object
-      default: {
-        color: 'white',
-        size: 'xl',
-      },
-  },
-```
-
-```html
-<UButton label="Button" icon="material-symbols:account-circle" color="white" />
-```
-
-If you have buttons with such colors, take into account that Nuxt UI provides pre-defined variants with those colors inside the `button` object. Therefore, if you need to costumize styles for buttons with such colors, do it in the corresponding variant property inside the 'color' object. Let's see an example in the next slide.
-
-<!--
-
-# SLIDE 26
-
--->
-
----
-
-For example, you have a white button variant ghost:
-
-```ts
-
-  button: {
-    // ...rest of the object
-       default: {
-        size: 'xl',
-        color: 'white',
-        variant: 'ghost',
-      },
-  },
-```
-
-ADD IMAGES
-
-You want to change the font color to be `text-lemon-500`. Change the class in the `ghost` property inside the `white` object:
-
-```ts
-
-  button: {
-    // ...rest of the object
-    color: {
-      white: {
-        ghost: 'text-lemon-500'
-    },
-  },
-  default: {
-    size: 'xl',
-    color: 'white',
-    variant: 'ghost',
-  },
-  },
-```
-
-ADD IMAGES
-
-<!--
-
-# SLIDE 27
-
--->
-
-<style> 
-p {
-  font-size: 12px;
-} 
-</style>
-
----
-
-## Thank you for your attention
-
-<!--
-
-# SLIDE 28
 
 -->
 
