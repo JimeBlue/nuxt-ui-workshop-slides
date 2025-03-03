@@ -206,7 +206,7 @@ p {
 
 And that’s it! 🎉 By default, Nuxt UI ships buttons as `primary`. You can check Nuxt UI’s [button config object](https://ui.nuxt.com/components/button#config) for reference.
 
-In the `suite-starter`, the `color` property is not overridden in the `app.config.ts` file. Therefore, by default, all buttons are `primary`, and **no additional configuration is needed**.
+In the `suite-starter`, the `color` property is not overridden in the `button` object. Therefore, by default, all buttons are `primary`, and **no additional configuration is needed**.
 
 ```ts
 // app.config.ts
@@ -225,11 +225,13 @@ In the `suite-starter`, the `color` property is not overridden in the `app.confi
     },
 ```
 
-Now, you can use the `UButton` component like this:
-
-```html
-<UButton :label="t('buttons.workshop.primary')" />
-```
+<v-click>
+  <p>Now, you can use the `UButton` component like this:</p>
+  
+  ```html
+  <UButton :label="t('buttons.workshop.primary')" />
+  ```
+</v-click>
 
 <style> 
 h2, h3 {
@@ -280,42 +282,44 @@ a:hover {
 
 <p>Set the <code>secondary</code> or <code>accent</code> color globally by following these steps:</p>
 
-<p>1️⃣ If you have a custon color, define it in <code>tailwind.config.js</code></p>
-
-<div v-click class="flex flex justify-around">
-
-```ts
-  // secondary
-     colors: {
-      ...
-        green: {
-          ...colors.green,
-          500: '#04784e',
+<v-click>
+  <p>1️⃣ If you have a custon color, define it in <code>tailwind.config.js</code></p>
+  
+  <div class="flex flex justify-around">
+  
+  ```ts
+    // secondary
+       colors: {
+        ...
+          green: {
+            ...colors.green,
+            500: '#04784e',
+          },
         },
-      },
-```
-
-```ts
- // accent
-     colors: {
-      ....
-        yellow: {
-          50: '#fdfee8',
-          100: '#fdffc2',
-          200: '#feff87',
-          300: '#fff943',
-          400: '#ffea03',
-          500: '#efd203',
-          600: '#cea400',
-          700: '#a47604',
-          800: '#885c0b',
-          900: '#734b10',
-          950: '#432705',
+  ```
+  
+  ```ts
+   // accent
+       colors: {
+        ....
+          yellow: {
+            50: '#fdfee8',
+            100: '#fdffc2',
+            200: '#feff87',
+            300: '#fff943',
+            400: '#ffea03',
+            500: '#efd203',
+            600: '#cea400',
+            700: '#a47604',
+            800: '#885c0b',
+            900: '#734b10',
+            950: '#432705',
+          },
         },
-      },
-```
-
-</div>
+  ```
+  
+  </div>
+</v-click>
 
 <div class="relative">
   <div class="flex justify-end absolute bottom-0 right-4"> <button @click="$slidev.nav.go(2)" class="back"> Topics </button> </div>
@@ -372,7 +376,7 @@ pre, code {
 
 ---
 
-<p>2️⃣ Set the corresponding <code>color</code>as the default button color in <code>app.config.ts</code></p>
+<p>2️⃣  Set the <code>color</code> property to the desired secondary or accent color inside the <code>default</code> object.</p>
 
 <div  class="flex justify-around">
 
@@ -417,7 +421,7 @@ p {
 
 ---
 
-<p>💡 If most buttons are primary but you need a <code>secondary</code> or <code>accent</code> button on a per-button basis, use the <code>color</code> prop in the <code>UButton</code> component. You still need to define your custom color in <code>tailwind.config.js</code>.</p>
+<p>💡 If most buttons are primary but you need the <code>secondary</code> or <code>accent</code> color on individual buttons, use the <code>color</code> prop in the <code>UButton</code> component. 🧠 Remember you still need to define your custom color in <code>tailwind.config.js</code>.</p>
 
 ```vue
 <UButton color="green" :label="t('buttons.workshop.secondary')" />
@@ -432,6 +436,17 @@ p {
 ```
 
 <img src="/images/btn-accent.png" width="80">
+
+<style> 
+
+
+p {
+  color: #e2e8f0;
+  font-size: 14px;
+} 
+
+
+</style>
 
 <!--
 # SLIDE 7
@@ -638,7 +653,7 @@ p {
 </ul>
 
 <div v-click>
-  <p>💡 All the mentioned styles can be configured either globally or by means of the <code>ui</code> prop. </p>
+  <p>💡 All the mentioned styles can be configured either globally or on individual buttons using the <code>ui</code> prop. </p>
 
   <div>
 ```ts 
@@ -685,7 +700,7 @@ p {
 <v-click>
 
 <p>
-  📌  Just add the necessary class to the object corresponding to your button`s variant.
+  📌  Just add the necessary class/classes to the object corresponding to your button`s variant.
   In this example, buttons use the <code>solid</code> variant.
 </p>
 
@@ -759,15 +774,17 @@ p {
 />
 ```
 
-<p>📝 You can also create a skewed button by adding the necessary class to the <code>base</code> object. However, keep in mind that this will cause all your buttons to be skewed, regardless of their variant.</p>
-
-```ts
-
-    button: {
-      base: '-skew-x-12',
-      ....
-    },
-```
+<v-click>
+  <p>📝 You can also create a skewed button by adding the necessary class to the <code>base</code> property. However, keep in mind that this will cause all your buttons to be skewed, regardless of their variant.</p>
+  
+  ```ts
+  
+      button: {
+        base: '-skew-x-12',
+        ....
+      },
+  ```
+</v-click>
 
 <style> 
 
@@ -879,7 +896,7 @@ p {
 
 <v-click>
 
-1. <p><span>Identify the variant of the buttons. In this example the variant is <code>solid</code></span><span> (🧠 Remember, buttons remain solid unless you explicitly add the <code>variant</code> property.)</span></p>
+1. <p><span>Identify the variant of the buttons. In this example the variant is <code>solid</code></span><span> (🧠 Remember, buttons remain solid unless you explicitly add the <code>variant</code> property to the <code>default</code> object.)</span></p>
 
 ```ts
     button: {
