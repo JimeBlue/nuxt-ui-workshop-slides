@@ -700,7 +700,7 @@ p {
 <v-click>
 
 <p>
-  📌  Just add the necessary class/classes to the object corresponding to your button`s variant.
+  📌  Just add the necessary class/classes to the property within the <code>variant</code> object corresponding to your button`s variant.
   In this example, buttons use the <code>solid</code> variant.
 </p>
 
