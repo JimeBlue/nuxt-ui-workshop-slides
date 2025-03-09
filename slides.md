@@ -437,6 +437,22 @@ p {
 
 <img src="/images/btn-accent.png" width="80">
 
+<v-click>
+<p>💡 If you want to customize styles further and your secondary/accent button shares the same variant as your primary button, create a new object within the <code>color</code> object to avoid affecting your primary styles.</p>
+
+```ts
+   color: {
+       ....
+        green: {
+          solid:
+            'bg-green-500 text-yellow-500 hover:bg-yellow-800',
+        },
+      },
+
+```
+
+</v-click>
+
 <style> 
 
 
