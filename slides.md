@@ -204,7 +204,7 @@ p {
 
 ---
 
-And that’s it! 🎉 By default, Nuxt UI ships buttons as `primary`. You can check Nuxt UI’s [button config object](https://ui.nuxt.com/components/button#config) for reference.
+And that’s it! 🎉 By default, Nuxt UI ships buttons as `primary`. You can check Nuxt UI’s [button config object](https://ui2.nuxt.com/components/button#config) for reference.
 
 In the `suite-starter`, the `color` property is not overridden in the `button` object. Therefore, by default, all buttons are `primary`, and **no additional configuration is needed**.
 
@@ -1161,7 +1161,7 @@ h2 { color: #00DC82; font-size: 28px; } h3 { color: #00DC82; font-size: 20px; } 
 
 <p>
   <span>2. Use the <code>leading</code> or <code>trailing</code> prop to set the icon position.</span> <span>By default, icons are<code>leading.</code></span>
-    <a href="https://ui.nuxt.com/components/button#icon" target="_blank" class="link">Check out the Nuxt UI documentation.</a>
+    <a href="https://ui2.nuxt.com/components/button#icon" target="_blank" class="link">Check out the Nuxt UI documentation.</a>
 </p>
 
 <img src="/images/btn-iconify-leading.png" width="80">
@@ -1372,7 +1372,7 @@ p { color: #e2e8f0; font-size: 14px; }
 <Button  m="t-4" />
 
 <v-click>
-<p class="text"><span>1. Inside the <code>button</code> object, identify the property that is wrapping the <code>label</code> and the <code>icon</code>.</span> <span>📝 By default that property is <code>inline</code>.   But if you are using the <a href="https://ui.nuxt.com/components/button#block" target="_blank" class="link">block</a> prop, then the wrapper property will be <code>block</code>.</span></p>
+<p class="text"><span>1. Inside the <code>button</code> object, identify the property that is wrapping the <code>label</code> and the <code>icon</code>.</span> <span>📝 By default that property is <code>inline</code>.   But if you are using the <a href="https://ui2.nuxt.com/components/button#block" target="_blank" class="link">block</a> prop, then the wrapper property will be <code>block</code>.</span></p>
 
 ```ts
   button: {
